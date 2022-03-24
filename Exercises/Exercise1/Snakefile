@@ -1,9 +1,9 @@
-rule headers:
+rule download_headers:
     output: "HEADERS.txt"
     message: "Downloading {output}"
     shell: "wget https://www1.ncdc.noaa.gov/pub/data/uscrn/products/daily01/HEADERS.txt"
 
-rule NNE:
+rule download_nne:
     output: "CRND0103-2020-AK_Aleknagik_1_NNE.txt"
     message: "Downloading {output}"
     shell: "wget https://www1.ncdc.noaa.gov/pub/data/uscrn/products/daily01/2020/CRND0103-2020-AK_Aleknagik_1_NNE.txt"

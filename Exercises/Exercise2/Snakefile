@@ -14,7 +14,7 @@ rule plot_r:
     shell: "module load R; Rscript plot_files.r {input.headers} {input.nne}"
 
 rule download_one_data:
-    output: f"CRND0103-2020-AK_{location}.txt"
+    output: "CRND0103-2020-AK_{location}.txt"
     message: "Downloading {output}"
     shell: "wget https://www1.ncdc.noaa.gov/pub/data/uscrn/products/daily01/2020/{output}"
 

@@ -1,3 +1,5 @@
+
+
 locations = [
     "Aleknagik_1_NNE",
     "King_Salmon_42_SE",
@@ -9,17 +11,12 @@ rule plot_r:
     input: headers="HEADERS.txt",nne=expand("CRND0103-2020-AK_{location}.txt",location=locations)
     output: "Rplot001.png"
     message: "Turning {input.headers} and {input.nne} into {output}."
-    shell: """
-           module load R
-           Rscript plot_files.r {input.headers} {input.nne}
-           """
-
+    shell: "module load R; Rscript plot_files.r {input.headers} {input.nne}"
 
 rule download_one_data:
     output: f"CRND0103-2020-AK_{location}.txt"
     message: "Downloading {output}"
     shell: "wget https://www1.ncdc.noaa.gov/pub/data/uscrn/products/daily01/2020/{output}"
-
 
 rule download_headers:
     output: "HEADERS.txt"
